@@ -13,6 +13,26 @@ class laptop:public pc{
     displayFrequency(dispFreq),
     batteryLevel(battLevel){
     }
+    laptop& operator =(const laptop &p){
+        if(this==&p){
+            std::cout<<"Assign to self laptop "<<std::endl;
+            return *this;
+        }
+        std::cout<<"Copy assignment operator laptop"<<std::endl;
+        pc::operator=(p);
+        displayFrequency=p.displayFrequency;
+        batteryLevel=p.batteryLevel;
+
+        return *this;
+    }
+    laptop& operator +=(const laptop &p){
+        std::cout<<"Add operator laptop"<<std::endl;
+        pc::operator+=(p);
+        displayFrequency+=p.displayFrequency;
+        batteryLevel+=p.batteryLevel;
+
+        return *this;
+    }
     void getDisplayFrequency(){
         std::cout<<"Display frequency is: "<<this->displayFrequency<<std::endl;
     }

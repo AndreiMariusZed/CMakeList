@@ -13,6 +13,26 @@ class desktopPC:public pc{
     dustFilter(dustFil){
 
     }
+    desktopPC& operator =(const desktopPC &p){
+        if(this==&p){
+            std::cout<<"Assign to self desktop "<<std::endl;
+            return *this;
+        }
+        std::cout<<"Copy assignment operator desktop"<<std::endl;
+        pc::operator=(p);
+        nrOfCustomizableVents = p.nrOfCustomizableVents;
+        dustFilter=p.dustFilter;
+
+        return *this;
+    }
+    desktopPC& operator +=(const desktopPC &p){
+        std::cout<<"Add operator desktop"<<std::endl;
+        pc::operator+=(p);
+        nrOfCustomizableVents += p.nrOfCustomizableVents;
+        dustFilter=p.dustFilter;
+
+        return *this;
+    }
     void setColor(const std::string &coloR){
         pc::setColor(color);
         std::cout<<"The desktop's color has been changed"<<std::endl;
