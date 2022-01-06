@@ -83,25 +83,25 @@ int main(){
     l5.color="white";
     l1 = l5;
     l1.getColor();
-    std::cout<<"-------auto "<<std::endl;
+    std::cout<<"auto"<<std::endl;
     {
         auto_ptr<pc> autopc(CreatePcInstance());
         autopc->getColor();
         auto_ptr<pc> autopc2(autopc);
         autopc2->getColor();
-
-        
+        // autopc->getColor();       
     }
 
-    std::cout<<"------unique"<<std::endl;
+    std::cout<<"unique"<<std::endl;
     {
         unique_ptr<pc> uniquepc(CreatePcInstance());
         uniquepc->getProcessor();
         unique_ptr<pc> uniquepc2 = move(uniquepc);
-
+        // uniquepc->getProcessor();
+        // uniquepc2->getProcessor();
 
     }
-    std::cout<<"-----shared"<<std::endl;
+    std::cout<<"shared"<<std::endl;
     {
         shared_ptr<pc> sharedPc(CreatePcInstance());
         sharedPc->getProcessor();
@@ -120,7 +120,7 @@ int main(){
 
         sharedPc2->getColor();
 
-        std::cout<<"------weak"<<std::endl;
+        std::cout<<"weak"<<std::endl;
         weak_ptr<pc> weakCar(sharedPc3);
         std::cout<<"sharedPC3 count = " <<sharedPc3.use_count()<<std::endl;
 

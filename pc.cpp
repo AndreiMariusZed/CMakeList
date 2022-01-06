@@ -22,7 +22,7 @@ class pc{
     width(weighT),
     color(coloR)
     {
-
+       std::cout<<"PC constructor"<<std::endl; 
     }
     pc(const pc &p)=delete;      
     pc& operator =(const pc &p){
@@ -58,15 +58,15 @@ class pc{
     ~pc(){
         std::cout<<"Pc destructor"<<std::endl;
     }
-void setIsLocked(bool isLocked){
+    void setIsLocked(bool isLocked){
         this->isLocked=isLocked;
     }
 
     void askResource(){
         if(this->isLocked){
-            std::cout<<"Nu ai acces ! "<<std::endl;
+            std::cout<<"Nu ai acces !"<<std::endl;
         }else{
-            std::cout<<"Ai acces ! "<<std::endl;
+            std::cout<<"Ai acces !"<<std::endl;
         }
     }
 
