@@ -10,6 +10,7 @@ class pc{
     int weight;
     int height;
     int width;
+    bool isLocked = false;
     
     
     public:
@@ -25,10 +26,7 @@ class pc{
     }
     pc(const pc &p)=delete;      
     pc& operator =(const pc &p){
-        if(this==&p){
-            std::cout<<"Assign to self pc "<<std::endl;
-            return *this;
-        }
+        
         std::cout<<"Copy assignment operator pc "<<std::endl;
 
         weight=p.weight;
@@ -60,7 +58,17 @@ class pc{
     ~pc(){
         std::cout<<"Pc destructor"<<std::endl;
     }
+void setIsLocked(bool isLocked){
+        this->isLocked=isLocked;
+    }
 
+    void askResource(){
+        if(this->isLocked){
+            std::cout<<"Nu ai acces ! "<<std::endl;
+        }else{
+            std::cout<<"Ai acces ! "<<std::endl;
+        }
+    }
 
 };
 
